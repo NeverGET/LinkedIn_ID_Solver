@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import {parse} from "node-html-parser"
+import {unescape} from 'html-escaper';
 
 export default class check_id extends express.Router {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class check_id extends express.Router {
                 }
             })
 
-            return returnVal !== undefined ? {id: id, value: returnVal.querySelectorAll('td')[2].rawText} : {
+            return returnVal !== undefined ? {id: id, value: unescape(returnVal.querySelectorAll('td')[2].rawText)} : {
                 id: id,
                 value: "-1"
             };
