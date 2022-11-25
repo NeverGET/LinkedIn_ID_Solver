@@ -46,10 +46,6 @@ export default class check_id extends express.Router{
             }
         }
         this.get(`/`, this.callback(this));
-        this.post(`/`, function (req, res) {
-            const { name, year, rating } = req.body;
-            res.status(200).json([...this.movies, { id: this.movies.length + 1, name, year, rating }]);
-        });
     }
 
 
