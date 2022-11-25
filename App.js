@@ -2,7 +2,7 @@
 import express from "express";
 import check_id from "./check_id.js";
 
-export default class App extends express{
+export default class App extends express {
     constructor() {
         super();
 
