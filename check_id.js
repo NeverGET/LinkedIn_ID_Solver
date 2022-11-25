@@ -6,8 +6,7 @@ import {unescape} from 'html-escaper';
 export default class check_id extends express.Router {
     constructor(props) {
         super(props);
-        this.linkedInLinks =
-            {industry: "https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes"}
+        this.linkedInLinks = {industry: "https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes"}
 
         this.findByID = async function (id, url) {
             let htmlObject;
@@ -22,8 +21,7 @@ export default class check_id extends express.Router {
             })
 
             return returnVal !== undefined ? {id: id, value: unescape(returnVal.querySelectorAll('td')[2].rawText)} : {
-                id: id,
-                value: "-1"
+                id: id, value: "-1"
             };
         }
         this.callback = function (self) {
