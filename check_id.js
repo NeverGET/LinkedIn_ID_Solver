@@ -50,10 +50,6 @@ export default class check_id extends express.Router{
             const { name, year, rating } = req.body;
             res.status(200).json([...this.movies, { id: this.movies.length + 1, name, year, rating }]);
         });
-        this.delete(`/`, function (req, res) {
-            const { id } = req.body;
-            res.status(200).json(this.movies.filter(movie => movie.id !== id));
-        });
     }
 
 
