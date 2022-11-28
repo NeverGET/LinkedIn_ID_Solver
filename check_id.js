@@ -23,7 +23,7 @@ export default class Check_ID extends express.Router {
                 let key = value.split("=");
                 return {key: key[0], value: key[1]};
             })
-            let idPromises = keys.map((value) => {
+            let idPromises = keys.map(function(value){
                 return this.#findByID(value.value, this.linkedInLinks[value.key]).then(value1 => {
                     return value1;
                 });
